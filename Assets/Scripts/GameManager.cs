@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine.UI;
 
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject canvasPausa;
 
+
     void Start()
     {
-        
+
     }
 
     void Update()
