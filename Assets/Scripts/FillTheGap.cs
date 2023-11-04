@@ -32,8 +32,7 @@ public class FillTheGap : MonoBehaviour
 
     void Start()
     {
-        CollectingGaps();
-        CollectingButtons();
+
         Poem1();
     }
 
@@ -72,48 +71,10 @@ public class FillTheGap : MonoBehaviour
     public void Poem1()
     {
         gap1Active = true;
-        GameObject clon = Instantiate(gap1a, buttonFather.transform.parent);
+        GameObject clon = Instantiate(gap1a, buttonFather.transform);
+        clon.transform.SetParent(buttonFather.transform);
         currentGaps[1].GetComponent<Image>().color = Color.blue;
 
-    }
 
-    public void GoodClick()
-    {
-        // Suma 10 al medidor
-
-        for (int i = 0; i < currentGaps.Count; i++)
-        {
-            if (currentGaps[i].GetComponent<Image>().color == Color.blue && currentGaps.Count > 1)
-            {
-                Destroy(currentGaps[i]);
-                currentGaps.RemoveAt(i);
-                currentGaps[i].GetComponent<Image>().color = Color.blue;
-            }
-
-            else
-            {
-                Debug.Log("Ganaste");
-            }
-        }
-    }
-
-    public void BadClick()
-    {
-        // Hostia que te crió a tu vida
-
-        for (int i = 0; i < currentGaps.Count; i++)
-        {
-            if (currentGaps[i].GetComponent<Image>().color == Color.blue && currentGaps.Count > 1)
-            {
-                Destroy(currentGaps[i]);
-                currentGaps.RemoveAt(i);
-                currentGaps[i].GetComponent<Image>().color = Color.blue;
-            }
-
-            else
-            {
-                Debug.Log("Ganaste");
-            }
-        }
     }
 }
