@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Personaje1 : MonoBehaviour
+public class Enemigo : MonoBehaviour
 {
     private Animator animator;
     private bool alternarAnimacion = true; // Inicialmente, alternamos a la primera animación.
