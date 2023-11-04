@@ -5,33 +5,38 @@ using UnityEngine;
 public class Personaje1 : MonoBehaviour
 {
     private Animator animator;
-
-    public float intervalo = 0.5f;
-    private float tiempoPasado = 0.0f;
+    private bool alternarAnimacion = true; // Inicialmente, alternamos a la primera animación.
+    private float tiempoPasado = 0f;
+    public float intervaloCambio = 2f; // Intervalo de tiempo en segundos para cambiar de animación.
 
     void Start()
     {
         animator = GetComponent<Animator>();
     }
-        
+
     void Update()
     {
+        ProcesarMovimiento();
+
+        // Lleva un seguimiento del tiempo transcurrido.
         tiempoPasado += Time.deltaTime;
 
-        if (tiempoPasado >= intervalo)
+        // Verifica si ha pasado el intervalo de tiempo especificado.
+        if (tiempoPasado >= intervaloCambio)
         {
-            if(intervalo < 0.5f)
-            {
-                animator.SetBool("isAtaquing", true);
-            }
+            // Cambia la variable booleana para alternar entre animaciones.
+            alternarAnimacion = !alternarAnimacion;
 
-            else
-            {
-                animator.SetBool("isEspecial", false);
-            }
-            Debug.Log("Acción realizada cada " + intervalo + " segundos.");
+            // Establece la variable booleana en el Animator.
+            animator.SetBool("IsAtacking", alternarAnimacion);
 
-            tiempoPasado = 0.0f; // Reinicia el contador de tiempo.
+            // Reinicia el temporizador.
+            tiempoPasado = 0f;
         }
+    }
+
+    private void ProcesarMovimiento()
+    {
+        float inputMovimiento = Input.GetAxis("Horizontal");
     }
 }
