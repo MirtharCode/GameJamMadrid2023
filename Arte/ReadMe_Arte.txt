@@ -1,0 +1,1 @@
+Carpeta de arte creada para todo tema que sea de arte pero NO para uso directo en el juego. Lo que sea de uso directo se irá introduciendo en Assets. :)
