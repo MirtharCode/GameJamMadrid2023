@@ -648,7 +648,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barraCompleta: {fileID: 488883055}
   barraActual: {fileID: 196102815}
-  intervaloBajarVida: 1
+  intervaloBajarVida: 2
   cantidadBajarVida: 10
   animadorGameOver: {fileID: 998016055}
 --- !u!1 &196102813
