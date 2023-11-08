@@ -11,17 +11,21 @@ public class ButtonsScript : MonoBehaviour
     {
         gameManager = GameObject.FindGameObjectWithTag("GM");
     }
+    
+    
     public void GoodClick()
     {
-        // Suma 10 al medidor
+        Debug.Log("Sumo +10 al contador");
 
         for (int i = 0; i < gameManager.GetComponent<FillTheGap>().currentGaps.Count; i++)
         {
-            if (gameManager.GetComponent<FillTheGap>().currentGaps[i].GetComponent<Image>().color == Color.blue)
+            if (gameManager.GetComponent<FillTheGap>().currentGaps[i].GetComponent<Image>().color == Color.blue
+                && gameManager.GetComponent<FillTheGap>().gapsSolved < gameManager.GetComponent<FillTheGap>().currentGaps.Count)
             {
                 gameManager.GetComponent<FillTheGap>().currentGaps[i].GetComponent<Image>().color = Color.white;
                 gameManager.GetComponent<FillTheGap>().currentGaps[i].SetActive(false);
                 gameManager.GetComponent<FillTheGap>().currentGaps[i + 1].GetComponent<Image>().color = Color.blue;
+                gameManager.GetComponent<FillTheGap>().gapsSolved++;
             }
 
             else
@@ -33,6 +37,6 @@ public class ButtonsScript : MonoBehaviour
 
     public void BadClick()
     {
-        // Hostia que te crió a tu vida
+        Debug.Log("Resto 1 punto de vida a mi personaje");
     }
 }

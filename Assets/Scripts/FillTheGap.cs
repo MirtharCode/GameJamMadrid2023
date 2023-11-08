@@ -12,6 +12,7 @@ public class FillTheGap : MonoBehaviour
     [SerializeField] public List<GameObject> currentButtons;
     [SerializeField] public GameObject gapFather;
     [SerializeField] public GameObject buttonFather;
+    [SerializeField] public int gapsSolved = 0;
 
     [SerializeField] public bool poem1; [SerializeField] public bool poem2; [SerializeField] public bool poem3; [SerializeField] public bool poem4; [SerializeField] public bool poem5;
 
@@ -25,14 +26,14 @@ public class FillTheGap : MonoBehaviour
     [SerializeField] public bool gap9Solved = false; [SerializeField] public bool gap10Solved = false; [SerializeField] public bool gap11Solved = false; [SerializeField] public bool gap12Solved = false;
     [SerializeField] public bool gap13Solved = false; [SerializeField] public bool gap14Solved = false; [SerializeField] public bool gap15Solved = false;
 
-    [SerializeField] public bool gap1Active = false; [SerializeField] public bool gap2Active = false; [SerializeField] public bool gap3Active = false; [SerializeField] public bool gap4Active = false;
-    [SerializeField] public bool gap5Active = false; [SerializeField] public bool gap6Active = false; [SerializeField] public bool gap7Active = false; [SerializeField] public bool gap8Active = false;
-    [SerializeField] public bool gap9Active = false; [SerializeField] public bool gap10Active = false; [SerializeField] public bool gap11Active = false; [SerializeField] public bool gap12Active = false;
-    [SerializeField] public bool gap13Active = false; [SerializeField] public bool gap14Active = false; [SerializeField] public bool gap15Active = false;
+    //[SerializeField] public bool gap1Active = false; [SerializeField] public bool gap2Active = false; [SerializeField] public bool gap3Active = false; [SerializeField] public bool gap4Active = false;
+    //[SerializeField] public bool gap5Active = false; [SerializeField] public bool gap6Active = false; [SerializeField] public bool gap7Active = false; [SerializeField] public bool gap8Active = false;
+    //[SerializeField] public bool gap9Active = false; [SerializeField] public bool gap10Active = false; [SerializeField] public bool gap11Active = false; [SerializeField] public bool gap12Active = false;
+    //[SerializeField] public bool gap13Active = false; [SerializeField] public bool gap14Active = false; [SerializeField] public bool gap15Active = false;
 
     void Start()
     {
-
+        CollectingGaps();
         Poem1();
     }
 
@@ -70,11 +71,10 @@ public class FillTheGap : MonoBehaviour
 
     public void Poem1()
     {
-        gap1Active = true;
         GameObject clon = Instantiate(gap1a, buttonFather.transform);
         clon.transform.SetParent(buttonFather.transform);
-        currentGaps[1].GetComponent<Image>().color = Color.blue;
-
-
+        currentGaps[0].GetComponent<Image>().color = Color.blue;
     }
+
+
 }
