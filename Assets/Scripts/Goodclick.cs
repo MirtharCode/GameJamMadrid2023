@@ -36,6 +36,24 @@ public class Goodclick : MonoBehaviour
             }
         }
 
+        if (gameManager.GetComponent<FillTheGap>().currentGaps[1].GetComponent<Image>().color == Color.blue)
+            Gap2();
+        else if (gameManager.GetComponent<FillTheGap>().currentGaps[2].GetComponent<Image>().color == Color.blue)
+            Gap3();
+
+
         Debug.Log("Ganaste");
+    }
+
+    public void Gap2()
+    {
+        GameObject clon = Instantiate(gameManager.GetComponent<FillTheGap>().gap1b, gameManager.GetComponent<FillTheGap>().buttonFather.transform);
+        clon.transform.SetParent(gameManager.GetComponent<FillTheGap>().buttonFather.transform);
+    }
+
+    public void Gap3()
+    {
+        GameObject clon = Instantiate(gameManager.GetComponent<FillTheGap>().gap1c, gameManager.GetComponent<FillTheGap>().buttonFather.transform);
+        clon.transform.SetParent(gameManager.GetComponent<FillTheGap>().buttonFather.transform);
     }
 }
