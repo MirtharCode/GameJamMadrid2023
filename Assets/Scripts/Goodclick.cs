@@ -3,40 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ButtonsScript : MonoBehaviour
+public class Goodclick : MonoBehaviour
 {
+    [SerializeField] Button thisButton;
     [SerializeField] GameObject gameManager;
+    [SerializeField] bool notSolvedYet;
 
     private void Start()
     {
+        notSolvedYet = true;
+        thisButton = GetComponent<Button>();
         gameManager = GameObject.FindGameObjectWithTag("GM");
+        thisButton.onClick.AddListener(GoodClick);
     }
-    
-    
-    public void GoodClick()
+
+    void GoodClick()
     {
         Debug.Log("Sumo +10 al contador");
-
+        gameManager.GetComponent<FillTheGap>().gapsSolved++;
         for (int i = 0; i < gameManager.GetComponent<FillTheGap>().currentGaps.Count; i++)
         {
             if (gameManager.GetComponent<FillTheGap>().currentGaps[i].GetComponent<Image>().color == Color.blue
-                && gameManager.GetComponent<FillTheGap>().gapsSolved < gameManager.GetComponent<FillTheGap>().currentGaps.Count)
+                && gameManager.GetComponent<FillTheGap>().gapsSolved < gameManager.GetComponent<FillTheGap>().currentGaps.Count
+                && notSolvedYet)
             {
+                Debug.Log(gameManager.GetComponent<FillTheGap>().currentGaps[i].name);
                 gameManager.GetComponent<FillTheGap>().currentGaps[i].GetComponent<Image>().color = Color.white;
                 gameManager.GetComponent<FillTheGap>().currentGaps[i].SetActive(false);
                 gameManager.GetComponent<FillTheGap>().currentGaps[i + 1].GetComponent<Image>().color = Color.blue;
-                gameManager.GetComponent<FillTheGap>().gapsSolved++;
-            }
 
-            else
-            {
-                Debug.Log("Ganaste");
+                notSolvedYet = false;
             }
         }
-    }
 
-    public void BadClick()
-    {
-        Debug.Log("Resto 1 punto de vida a mi personaje");
+        Debug.Log("Ganaste");
     }
 }

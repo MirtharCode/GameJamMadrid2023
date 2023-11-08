@@ -12,6 +12,7 @@ public class FillTheGap : MonoBehaviour
     [SerializeField] public List<GameObject> currentButtons;
     [SerializeField] public GameObject gapFather;
     [SerializeField] public GameObject buttonFather;
+    [SerializeField] public int gapsSolved = 0;
 
     [SerializeField] public bool poem1; [SerializeField] public bool poem2; [SerializeField] public bool poem3; [SerializeField] public bool poem4; [SerializeField] public bool poem5;
 
@@ -32,7 +33,7 @@ public class FillTheGap : MonoBehaviour
 
     void Start()
     {
-
+        CollectingGaps();
         Poem1();
     }
 
@@ -73,8 +74,6 @@ public class FillTheGap : MonoBehaviour
         gap1Active = true;
         GameObject clon = Instantiate(gap1a, buttonFather.transform);
         clon.transform.SetParent(buttonFather.transform);
-        currentGaps[1].GetComponent<Image>().color = Color.blue;
-
-
+        currentGaps[0].GetComponent<Image>().color = Color.blue;
     }
 }
