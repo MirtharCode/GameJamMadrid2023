@@ -41,6 +41,9 @@ public class AtaqueEspecial : MonoBehaviour
     {
         if (energia == 100)
         {
+            energia = 0;
+            animador.SetTrigger("IsEspecial"); // Activa la animación
+
             StartCoroutine(PausarReduccionDeVidaDurante4Segundos());
         }
     }
