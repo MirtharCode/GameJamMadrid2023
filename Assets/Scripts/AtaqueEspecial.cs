@@ -7,6 +7,9 @@ public class AtaqueEspecial : MonoBehaviour
 {
     [SerializeField] float energia = 100;
     public Image imagenDeRelleno; // Asigna la imagen de relleno en el Inspector
+    public Animator animador;
+    public Vida scriptVida;
+
 
     void Update()
     {
@@ -36,7 +39,20 @@ public class AtaqueEspecial : MonoBehaviour
 
     public void resetearBarra()
     {
-        if(energia == 100)
-            energia = 0;
+        if (energia == 100)
+        {
+            StartCoroutine(PausarReduccionDeVidaDurante4Segundos());
+        }
     }
+
+    private IEnumerator PausarReduccionDeVidaDurante4Segundos()
+    {
+        scriptVida.puedeReducirVida = false; // Pausa la reducción de vida
+
+        // Espera 4 segundos
+        yield return new WaitForSeconds(4.0f);
+
+        scriptVida.puedeReducirVida = true; // Reanuda la reducción de vida
+    }
+
 }

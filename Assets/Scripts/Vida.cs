@@ -9,9 +9,11 @@ public class Vida : MonoBehaviour
     public float cantidadBajarVida = 10f; // Cantidad de vida a reducir.
     public Animator animadorGameOver; // Asigna el Animator que controla la animación de Game Over en el Inspector.
 
-    private float tiempoPasado = 0f;
-    private float vidaActual = 100f; // Valor inicial de la vida.
-    private bool vidaCero = false;
+    public float tiempoPasado = 0f;
+    public float vidaActual = 100f; // Valor inicial de la vida.
+    public bool vidaCero = false;
+    public bool puedeReducirVida = true;
+
 
     void Start()
     {
@@ -26,7 +28,7 @@ public class Vida : MonoBehaviour
         {
             tiempoPasado += Time.deltaTime;
 
-            if (tiempoPasado >= intervaloBajarVida)
+            if (tiempoPasado >= intervaloBajarVida && puedeReducirVida)
             {
                 ReducirVida();
                 tiempoPasado = 0f; // Reinicia el temporizador.
