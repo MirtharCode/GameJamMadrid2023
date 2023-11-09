@@ -1425,7 +1425,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: pareja
+  m_text: foco
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4b4d72edd2cbb7145829ff6074cb27a4, type: 2}
   m_sharedMaterial: {fileID: 8424957569796282585, guid: 4b4d72edd2cbb7145829ff6074cb27a4, type: 2}
@@ -2190,7 +2190,7 @@ GameObject:
   - component: {fileID: 3135585606195882984}
   - component: {fileID: 3135585606195882987}
   m_Layer: 5
-  m_Name: Poem1Gap1
+  m_Name: Poem1Gap7
   m_TagString: GapButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
