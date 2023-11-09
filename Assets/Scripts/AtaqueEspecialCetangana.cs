@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AtaqueEspecial : MonoBehaviour
+public class AtaqueEspecialCetangana : MonoBehaviour
 {
     [SerializeField] float energia = 100;
     public Image imagenDeRelleno; // Asigna la imagen de relleno en el Inspector
@@ -44,18 +44,12 @@ public class AtaqueEspecial : MonoBehaviour
             energia = 0;
             animador.SetTrigger("IsEspecial"); // Activa la animación
 
-            StartCoroutine(PausarReduccionDeVidaDurante4Segundos());
+            // Aumentar 20 puntos de vida
+            scriptVida.vidaActual += 20;
+            scriptVida.vidaActual = Mathf.Max(0f, scriptVida.vidaActual);
+
+
+            animador.SetTrigger("IsEspecial"); // Activa la animación
         }
     }
-
-    private IEnumerator PausarReduccionDeVidaDurante4Segundos()
-    {
-        scriptVida.puedeReducirVida = false; // Pausa la reducción de vida
-
-        // Espera 4 segundos
-        yield return new WaitForSeconds(4.0f);
-
-        scriptVida.puedeReducirVida = true; // Reanuda la reducción de vida
-    }
-
 }
