@@ -7,6 +7,7 @@ public class Goodclick : MonoBehaviour
 {
     [SerializeField] Button thisButton;
     [SerializeField] GameObject gameManager;
+    [SerializeField] GameObject currentPoem;
     [SerializeField] bool notSolvedYet;
     [SerializeField] Transform gapPapa;
     [SerializeField] Color currentUnsolvedGapColor;
@@ -19,95 +20,103 @@ public class Goodclick : MonoBehaviour
         gapPapa = gameManager.GetComponent<FillTheGap>().buttonFather.transform;
         currentUnsolvedGapColor = gameManager.GetComponent<FillTheGap>().currentUnsolvedGapColor;
         thisButton.onClick.AddListener(GoodClick);
+
+        currentPoem = gameManager.transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
     }
 
     void GoodClick()
     {
 
         Debug.Log("Sumo +10 al contador");
+
+
         gameManager.GetComponent<FillTheGap>().gapsSolved++;
-        for (int i = 0; i < gameManager.GetComponent<FillTheGap>().currentGaps.Count; i++)
+        for (int i = 0; i < currentPoem.GetComponent<Poem>().transform.childCount; i++)
         {
-            if (gameManager.GetComponent<FillTheGap>().currentGaps[i].GetComponent<Image>().color == currentUnsolvedGapColor
-                && gameManager.GetComponent<FillTheGap>().gapsSolved < gameManager.GetComponent<FillTheGap>().currentGaps.Count
+            if (currentPoem.GetComponent<Poem>().transform.GetChild(i).GetComponent<Image>().color == currentUnsolvedGapColor
+                && gameManager.GetComponent<FillTheGap>().gapsSolved < currentPoem.GetComponent<Poem>().transform.childCount
                 && notSolvedYet)
             {
-                gameManager.GetComponent<FillTheGap>().currentGaps[i].GetComponent<Image>().color = Color.white;
-                gameManager.GetComponent<FillTheGap>().currentGaps[i].SetActive(false);
-                gameManager.GetComponent<FillTheGap>().currentGaps[i + 1].GetComponent<Image>().color = currentUnsolvedGapColor;
+                currentPoem.GetComponent<Poem>().transform.GetChild(i).GetComponent<Image>().color = Color.white;
+                currentPoem.GetComponent<Poem>().transform.GetChild(i).gameObject.SetActive(false);
+                currentPoem.GetComponent<Poem>().transform.GetChild(i + 1).GetComponent<Image>().color = currentUnsolvedGapColor;
 
                 notSolvedYet = false;
             }
         }
 
-        if (gameManager.GetComponent<FillTheGap>().currentGaps[1].GetComponent<Image>().color == currentUnsolvedGapColor)
+
+        if (currentPoem.GetComponent<Poem>().transform.GetChild(1).GetComponent<Image>().color == currentUnsolvedGapColor)
         {
             Poem1GapActivation(gameManager.GetComponent<FillTheGap>().gap1b, gapPapa);
         }
 
-        else if (gameManager.GetComponent<FillTheGap>().currentGaps[2].GetComponent<Image>().color == currentUnsolvedGapColor)
+        else if (currentPoem.GetComponent<Poem>().transform.GetChild(2).GetComponent<Image>().color == currentUnsolvedGapColor)
         {
             Poem1GapActivation(gameManager.GetComponent<FillTheGap>().gap1c, gapPapa);
         }
-        else if (gameManager.GetComponent<FillTheGap>().currentGaps[3].GetComponent<Image>().color == currentUnsolvedGapColor)
+
+        else if (currentPoem.GetComponent<Poem>().transform.GetChild(3).GetComponent<Image>().color == currentUnsolvedGapColor)
         {
             Poem1GapActivation(gameManager.GetComponent<FillTheGap>().gap1d, gapPapa);
         }
 
-        else if (gameManager.GetComponent<FillTheGap>().currentGaps[4].GetComponent<Image>().color == currentUnsolvedGapColor)
+        else if (currentPoem.GetComponent<Poem>().transform.GetChild(4).GetComponent<Image>().color == currentUnsolvedGapColor)
         {
             Poem1GapActivation(gameManager.GetComponent<FillTheGap>().gap1e, gapPapa);
         }
-        else if (gameManager.GetComponent<FillTheGap>().currentGaps[5].GetComponent<Image>().color == currentUnsolvedGapColor)
+        else if (currentPoem.GetComponent<Poem>().transform.GetChild(5).GetComponent<Image>().color == currentUnsolvedGapColor)
         {
             Poem1GapActivation(gameManager.GetComponent<FillTheGap>().gap1f, gapPapa);
         }
 
-        else if (gameManager.GetComponent<FillTheGap>().currentGaps[6].GetComponent<Image>().color == currentUnsolvedGapColor)
+        else if (currentPoem.GetComponent<Poem>().transform.GetChild(6).GetComponent<Image>().color == currentUnsolvedGapColor)
         {
             Poem1GapActivation(gameManager.GetComponent<FillTheGap>().gap1g, gapPapa);
         }
 
-        else if (gameManager.GetComponent<FillTheGap>().currentGaps[7].GetComponent<Image>().color == currentUnsolvedGapColor)
+        else if (currentPoem.GetComponent<Poem>().transform.GetChild(7).GetComponent<Image>().color == currentUnsolvedGapColor)
         {
             Poem1GapActivation(gameManager.GetComponent<FillTheGap>().gap1h, gapPapa);
         }
 
-        else if (gameManager.GetComponent<FillTheGap>().currentGaps[8].GetComponent<Image>().color == currentUnsolvedGapColor)
+        else if (currentPoem.GetComponent<Poem>().transform.GetChild(8).GetComponent<Image>().color == currentUnsolvedGapColor)
         {
             Poem1GapActivation(gameManager.GetComponent<FillTheGap>().gap1i, gapPapa);
         }
 
-        else if (gameManager.GetComponent<FillTheGap>().currentGaps[9].GetComponent<Image>().color == currentUnsolvedGapColor)
+        else if (currentPoem.GetComponent<Poem>().transform.GetChild(9).GetComponent<Image>().color == currentUnsolvedGapColor)
         {
             Poem1GapActivation(gameManager.GetComponent<FillTheGap>().gap1j, gapPapa);
         }
 
-        else if (gameManager.GetComponent<FillTheGap>().currentGaps[10].GetComponent<Image>().color == currentUnsolvedGapColor)
+        else if (currentPoem.GetComponent<Poem>().transform.GetChild(10).GetComponent<Image>().color == currentUnsolvedGapColor)
         {
             Poem1GapActivation(gameManager.GetComponent<FillTheGap>().gap1k, gapPapa);
         }
 
-        else if (gameManager.GetComponent<FillTheGap>().currentGaps[11].GetComponent<Image>().color == currentUnsolvedGapColor)
+        else if (currentPoem.GetComponent<Poem>().transform.GetChild(11).GetComponent<Image>().color == currentUnsolvedGapColor)
         {
             Poem1GapActivation(gameManager.GetComponent<FillTheGap>().gap1l, gapPapa);
         }
 
-        else if (gameManager.GetComponent<FillTheGap>().currentGaps[12].GetComponent<Image>().color == currentUnsolvedGapColor)
+        else if (currentPoem.GetComponent<Poem>().transform.GetChild(12).GetComponent<Image>().color == currentUnsolvedGapColor)
         {
             Poem1GapActivation(gameManager.GetComponent<FillTheGap>().gap1m, gapPapa);
         }
 
-        else if (gameManager.GetComponent<FillTheGap>().currentGaps[13].GetComponent<Image>().color == currentUnsolvedGapColor)
+        else if (currentPoem.GetComponent<Poem>().transform.GetChild(13).GetComponent<Image>().color == currentUnsolvedGapColor)
         {
             Poem1GapActivation(gameManager.GetComponent<FillTheGap>().gap1n, gapPapa);
         }
 
-        else if (gameManager.GetComponent<FillTheGap>().currentGaps[14].GetComponent<Image>().color == currentUnsolvedGapColor)
+        else if (currentPoem.GetComponent<Poem>().transform.GetChild(14).GetComponent<Image>().color == currentUnsolvedGapColor)
         {
             Poem1GapActivation(gameManager.GetComponent<FillTheGap>().gap1o, gapPapa);
             gameManager.GetComponent<FillTheGap>().poem1Solved = true;
         }
+
+
     }
 
     public void Poem1GapActivation(GameObject nextGapToAppear, Transform where)
@@ -122,7 +131,7 @@ public class Goodclick : MonoBehaviour
 
         else
         {
-            gameManager.GetComponent<FillTheGap>().currentGaps[gameManager.GetComponent<FillTheGap>().currentGaps.Count - 1].SetActive(false);
+            currentPoem.GetComponent<Poem>().transform.GetChild(currentPoem.GetComponent<Poem>().transform.childCount - 1).gameObject.SetActive(false);
             Debug.Log("Ganaste");
         }
     }

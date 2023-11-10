@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class FillTheGap : MonoBehaviour
 {
 
-    [SerializeField] public List<GameObject> currentGaps;
     [SerializeField] public GameObject gapFather;
     [SerializeField] public GameObject buttonFather;
     [SerializeField] public int gapsSolved = 0;
@@ -39,7 +38,7 @@ public class FillTheGap : MonoBehaviour
     {
         currentUnsolvedGapColor = new Color(0.2196079f, 0.3294118f, 0.6588235f, 1);
         Poem1();
-        CollectingGaps();
+
 
     }
 
@@ -49,18 +48,7 @@ public class FillTheGap : MonoBehaviour
 
     }
 
-    public void CollectingGaps()
-    {
-        currentGaps.Clear();
 
-        while (currentGaps.Count != gapFather.gameObject.transform.childCount)
-        {
-            for (int i = 0; i < gapFather.gameObject.transform.GetChild(0).childCount; i++)
-            {
-                currentGaps.Add(gapFather.transform.GetChild(0).GetChild(i).gameObject);
-            }
-        }
-    }
 
     public void Poem1()
     {
@@ -69,14 +57,18 @@ public class FillTheGap : MonoBehaviour
 
         GameObject buttonClon = Instantiate(gap1a, buttonFather.transform);
         buttonClon.transform.SetParent(buttonFather.transform);
-        currentGaps[0].GetComponent<Image>().color = currentUnsolvedGapColor;
+        Debug.Log(GameObject.FindGameObjectWithTag("Poem").name);
+        GameObject.FindGameObjectWithTag("Poem").transform.GetChild(0).GetComponent<Image>().color = currentUnsolvedGapColor;
     }
 
     public void Poem2()
     {
+        GameObject poemClon = Instantiate(poem2, gapFather.transform);
+        poemClon.transform.SetParent(gapFather.transform);
+
         GameObject buttonClon = Instantiate(gap1a, buttonFather.transform);
         buttonClon.transform.SetParent(buttonFather.transform);
-        currentGaps[0].GetComponent<Image>().color = currentUnsolvedGapColor;
+        poemClon.GetComponent<Poem>().currentGaps[0].GetComponent<Image>().color = currentUnsolvedGapColor;
     }
 
 

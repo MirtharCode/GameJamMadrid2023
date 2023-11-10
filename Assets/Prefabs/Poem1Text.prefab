@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 380135271737095481}
   - component: {fileID: 380135271737095479}
   - component: {fileID: 380135271737095478}
+  - component: {fileID: -5506287157220581744}
   m_Layer: 5
   m_Name: Poem1Text
-  m_TagString: Untagged
+  m_TagString: Poem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,6 +156,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &-5506287157220581744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380135271737095480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f466a57e15b03e4494b44cec66ce1bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  currentGaps: []
 --- !u!1001 &380135269668399548
 PrefabInstance:
   m_ObjectHideFlags: 0
