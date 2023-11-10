@@ -20,4 +20,9 @@ public class Menu : MonoBehaviour
     {
         SceneManager.LoadScene(9);
     }
+
+    public void Volvermenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
