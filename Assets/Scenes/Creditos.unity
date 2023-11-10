@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Samuel\tGarari\t\tGeorgy\t\tMiguel"
+  m_text: "Samuel\tGarari\t\tGeorgy\t\tMiguel\t\tLaura"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4b4d72edd2cbb7145829ff6074cb27a4, type: 2}
   m_sharedMaterial: {fileID: 8424957569796282585, guid: 4b4d72edd2cbb7145829ff6074cb27a4, type: 2}
@@ -208,8 +208,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50.68
-  m_fontSizeBase: 50.68
+  m_fontSize: 40.21
+  m_fontSizeBase: 40.21
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
