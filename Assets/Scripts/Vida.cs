@@ -15,12 +15,16 @@ public class Vida : MonoBehaviour
     public bool vidaCero = false;
     public bool puedeReducirVida = true;
 
+    public GameObject panel;
+
+    public Vida scriptVida;
 
     void Start()
     {
         // Configura las imágenes en su estado inicial.
         barraCompleta.fillAmount = 1f; // Barra completa al inicio.
         barraActual.fillAmount = 1f; // Barra actual al inicio.
+        panel.SetActive(false);
     }
 
     void Update()
@@ -35,6 +39,7 @@ public class Vida : MonoBehaviour
                 tiempoPasado = 0f; // Reinicia el temporizador.
             }
         }
+
     }
 
     void ReducirVida()
@@ -55,6 +60,20 @@ public class Vida : MonoBehaviour
             vidaCero = true;
             // Inicia la animación de Game Over.
             animadorGameOver.SetTrigger("Game Over"); // Asegúrate de tener un trigger llamado "Game Over" en tu Animator.
+
+            panel.SetActive(true);
+
+            scriptVida.puedeReducirVida = false;
         }
+    }
+
+    public void siguienteNivel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void NivelFallido()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }
