@@ -6,9 +6,33 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu (Para que Samu haga lo que mejor sabe hacer).unity
+    path: Assets/Scenes/Menu.unity
     guid: 1b8cd7e30f0714e4f96d72395812bbd0
   - enabled: 1
-    path: Assets/Scenes/Prueba (creo).unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Introduccion.unity
+    guid: eff1ade2e3ec90d40b98cf9527612038
+  - enabled: 1
+    path: Assets/Scenes/Transicion3.unity
+    guid: 82e7d4c1e0d48ac439f2686399eba960
+  - enabled: 1
+    path: Assets/Scenes/SanIsidroVsJoseBonaparte.unity
+    guid: bcb7f92d619288944a82a609bb380880
+  - enabled: 1
+    path: Assets/Scenes/Transicion2.unity
+    guid: 9f859fa159d90494c8a7c3a325b35b3b
+  - enabled: 1
+    path: Assets/Scenes/QuevedoVsQuevedo.unity
+    guid: 645f7236f1ad59a42a69d1a7e52cead2
+  - enabled: 1
+    path: Assets/Scenes/Transicion1.unity
+    guid: 7211c3b8e29ead84899da652e2d5af30
+  - enabled: 1
+    path: Assets/Scenes/CTanganaVsFary.unity
+    guid: 3a42c23ee3f539044859bf562c19a9d1
+  - enabled: 1
+    path: Assets/Scenes/Final.unity
+    guid: 1ea4d9793bb053d4e8c3dcb30d54232e
+  - enabled: 1
+    path: Assets/Scenes/Creditos.unity
+    guid: dca83bdfd115cdc429b8d4973b710486
   m_configObjects: {}

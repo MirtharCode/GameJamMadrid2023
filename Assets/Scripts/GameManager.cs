@@ -44,4 +44,24 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
+
+    public void fight3()
+    {
+        SceneManager.LoadScene(7);
+    }
+
+    public void fight2()
+    {
+        SceneManager.LoadScene(5);
+    }
+
+    public void fight1()
+    {
+        SceneManager.LoadScene(3);
+    }
+
+    public void ContinuarIntroduccion()
+    {
+        SceneManager.LoadScene(2);
+    }
 }
