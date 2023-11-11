@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class AtaqueEspecialQuevedo : MonoBehaviour
 {
-    [SerializeField] float energia = 100;
+    [SerializeField] public float energia = 100;
     public Image imagenDeRelleno; // Asigna la imagen de relleno en el Inspector
     public Animator animador;
     public Vida scriptVida;

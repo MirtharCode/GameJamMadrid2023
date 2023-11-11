@@ -5,12 +5,18 @@ using UnityEngine.UI;
 
 public class AtaqueEspecialIsidro : MonoBehaviour
 {
-    [SerializeField] float energia = 100;
+    [SerializeField] public float energia = 100;
     public Image imagenDeRelleno; // Asigna la imagen de relleno en el Inspector
     public Animator animador;
     public Vida scriptVida;
 
+    [SerializeField] AudioSource beamSound;
 
+
+    private void Start()
+    {
+        beamSound = GetComponent<AudioSource>();
+    }
     void Update()
     {
         RecargarEspecial();
@@ -41,6 +47,7 @@ public class AtaqueEspecialIsidro : MonoBehaviour
     {
         if (energia == 100)
         {
+            beamSound.Play();
             energia = 0;
             animador.SetTrigger("IsEspecial"); // Activa la animación
 

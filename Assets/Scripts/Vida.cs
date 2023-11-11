@@ -19,12 +19,15 @@ public class Vida : MonoBehaviour
 
     public Vida scriptVida;
 
+    [SerializeField] AudioSource hitSound;
+
     void Start()
     {
         // Configura las imágenes en su estado inicial.
         barraCompleta.fillAmount = 1f; // Barra completa al inicio.
         barraActual.fillAmount = 1f; // Barra actual al inicio.
         panel.SetActive(false);
+        hitSound = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -46,6 +49,7 @@ public class Vida : MonoBehaviour
     {
         // Disminuye la vida según la cantidad especificada.
         vidaActual -= cantidadBajarVida;
+        hitSound.Play();
 
         // Asegura que la vida no sea menor que 0.
         vidaActual = Mathf.Max(0f, vidaActual);

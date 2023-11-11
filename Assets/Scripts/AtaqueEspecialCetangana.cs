@@ -5,11 +5,17 @@ using UnityEngine.UI;
 
 public class AtaqueEspecialCetangana : MonoBehaviour
 {
-    [SerializeField] float energia = 100;
+    [SerializeField] public float energia = 100;
     public Image imagenDeRelleno; // Asigna la imagen de relleno en el Inspector
     public Animator animador;
     public Vida scriptVida;
 
+    [SerializeField] AudioSource healSound;
+
+    private void Start()
+    {
+        healSound = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -41,6 +47,7 @@ public class AtaqueEspecialCetangana : MonoBehaviour
     {
         if (energia == 100)
         {
+            healSound.Play();
             energia = 0;
             animador.SetTrigger("IsEspecial"); // Activa la animación
 
