@@ -203,6 +203,8 @@ public class Goodclick : MonoBehaviour
 
         Scene currentScene = SceneManager.GetActiveScene();
 
+        gameManager.transform.GetChild(0).GetChild(5).GetComponent<Vida>().vidaActual += 4;
+
         if (currentScene.name.Contains("Tangana"))
         {
             if (!gameManager.GetComponent<FillTheGap>().poem1Solved)

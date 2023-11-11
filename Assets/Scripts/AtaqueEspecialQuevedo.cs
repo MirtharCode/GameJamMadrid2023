@@ -10,6 +10,12 @@ public class AtaqueEspecialQuevedo : MonoBehaviour
     public Animator animador;
     public Vida scriptVida;
 
+    [SerializeField] Animator animator;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     void Update()
     {
@@ -35,12 +41,16 @@ public class AtaqueEspecialQuevedo : MonoBehaviour
     {
         float fillAmount = energia / 100f; // Normaliza la cantidad de energía entre 0 y 1
         imagenDeRelleno.fillAmount = fillAmount; // Asigna el valor a la imagen de relleno
+
+        if (energia == 100)
+            animator.SetBool("isFull", true);
     }
 
     public void resetearBarra()
     {
         if (energia == 100)
         {
+            animator.SetBool("isFull", false);
             energia = 0;
             animador.SetTrigger("IsEspecial"); // Activa la animación
 

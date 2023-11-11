@@ -11,10 +11,12 @@ public class AtaqueEspecialCetangana : MonoBehaviour
     public Vida scriptVida;
 
     [SerializeField] AudioSource healSound;
+    [SerializeField] Animator animator;
 
     private void Start()
     {
         healSound = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -41,18 +43,23 @@ public class AtaqueEspecialCetangana : MonoBehaviour
     {
         float fillAmount = energia / 100f; // Normaliza la cantidad de energía entre 0 y 1
         imagenDeRelleno.fillAmount = fillAmount; // Asigna el valor a la imagen de relleno
+
+        if (energia == 100)
+            animator.SetBool("isFull", true);
+
     }
 
     public void resetearBarra()
     {
         if (energia == 100)
         {
+            animator.SetBool("isFull", false);
             healSound.Play();
             energia = 0;
             animador.SetTrigger("IsEspecial"); // Activa la animación
 
-            // Aumentar 20 puntos de vida
-            scriptVida.vidaActual += 20;
+            // Aumentar 30 puntos de vida
+            scriptVida.vidaActual += 30;
             scriptVida.vidaActual = Mathf.Max(0f, scriptVida.vidaActual);
 
 

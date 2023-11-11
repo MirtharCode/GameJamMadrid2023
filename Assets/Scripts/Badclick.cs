@@ -21,7 +21,7 @@ public class Badclick : MonoBehaviour
     public void BadClick()
     {
         Debug.Log("Resto 1 punto de vida a mi personaje");
-        gameManager.transform.GetChild(0).GetChild(5).GetComponent<Vida>().vidaActual -= 5;
+        gameManager.transform.GetChild(0).GetChild(5).GetComponent<Vida>().vidaActual -= 1;
         playerHit.Play();
     }
 }

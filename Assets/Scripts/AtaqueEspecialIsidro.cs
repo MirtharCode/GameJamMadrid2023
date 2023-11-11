@@ -11,11 +11,13 @@ public class AtaqueEspecialIsidro : MonoBehaviour
     public Vida scriptVida;
 
     [SerializeField] AudioSource beamSound;
+    [SerializeField] Animator animator;
 
 
     private void Start()
     {
         beamSound = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
     }
     void Update()
     {
@@ -41,6 +43,9 @@ public class AtaqueEspecialIsidro : MonoBehaviour
     {
         float fillAmount = energia / 100f; // Normaliza la cantidad de energía entre 0 y 1
         imagenDeRelleno.fillAmount = fillAmount; // Asigna el valor a la imagen de relleno
+
+        if (energia == 100)
+            animator.SetBool("isFull", true);
     }
 
     public void resetearBarra()
@@ -48,6 +53,7 @@ public class AtaqueEspecialIsidro : MonoBehaviour
         if (energia == 100)
         {
             beamSound.Play();
+            animator.SetBool("isFull", false);
             energia = 0;
             animador.SetTrigger("IsEspecial"); // Activa la animación
 
