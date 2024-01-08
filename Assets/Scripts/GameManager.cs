@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject canvasPausa;
+    [SerializeField] AudioSource canvas;
 
 
     void Start()
@@ -24,11 +25,13 @@ public class GameManager : MonoBehaviour
             {
                 canvasPausa.SetActive(false);
                 Time.timeScale = 1;
+                canvas.Play();
             }
             else
             {
                 canvasPausa.SetActive(true);
                 Time.timeScale = 0;
+                canvas.Pause();
             }
         }
     }
@@ -37,6 +40,7 @@ public class GameManager : MonoBehaviour
     {
         canvasPausa.SetActive(false);
         Time.timeScale = 1;
+        canvas.Play();
     }
 
     public void Titulo()
